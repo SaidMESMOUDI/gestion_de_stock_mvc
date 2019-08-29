@@ -41,4 +41,7 @@
 	
 	<context:annotation-config></context:annotation-config>
 	
+	<!-- Déclaration des beans -->
+	<import resource="classpath:config/beans-config.xml"/>
+	
 </beans>
