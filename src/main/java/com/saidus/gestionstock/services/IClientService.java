@@ -14,4 +14,5 @@ public interface IClientService {
 	public Client findOne(String paramName, Object paramValue);
 	public Client findOne(String[] paramNames, Object[] paramValues);
 	public int findCountBy(String paramName, String paramValue);
+
 }

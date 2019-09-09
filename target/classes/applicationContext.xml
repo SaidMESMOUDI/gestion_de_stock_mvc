@@ -37,11 +37,19 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
 	</bean>
 	
-	<tx:annotation-driven transaction-manager="transactionManager" />
-	
-	<context:annotation-config></context:annotation-config>
-	
 	<!-- Déclaration des beans -->
 	<import resource="classpath:config/beans-config.xml"/>
+	
+		<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<!-- <bean id="multipartResolver"
+	    class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+    	one of the properties available; the maximum file size in bytes
+	    <property name="maxUploadSize" value="20971520"/>  // 20MB
+    	<property name="maxInMemorySize" value="5242880"/> // 5MB
+    	<property name="maxUploadSizePerFile" value='2097152' />  // 2MB
+	</bean> -->
+	
+	<context:annotation-config></context:annotation-config>
 	
 </beans>

@@ -56,4 +56,9 @@
 	<bean id="flickrService" class="com.saidus.gestionstock.services.impl.FlickrServiceImpl">
 		<property name="dao" ref="flickrDao"></property>
 	</bean>
+	
+	<bean id="uploadFileDao" class="com.saidus.gestionstock.dao.impl.UploadFileDaoImpl"></bean>
+	<bean id="uploadFileService" class="com.saidus.gestionstock.services.impl.UploadFileServiceImpl">
+		<property name="dao" ref="uploadFileDao"></property>
+	</bean>
 </beans>

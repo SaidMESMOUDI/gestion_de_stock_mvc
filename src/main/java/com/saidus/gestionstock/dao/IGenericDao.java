@@ -13,4 +13,6 @@ public interface IGenericDao<E> {
 	public E findOne(String[] paramNames, Object[] paramValues);
 	public int findCountBy(String paramName, String paramValue);
 	
+	public E saveData(E uploadFile);
+	
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,17 +15,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
+@SuppressWarnings("serial")
 @Entity
 @Table(name="commande_client")
-@Data @AllArgsConstructor @NoArgsConstructor @ToString
+/* @Data @AllArgsConstructor @NoArgsConstructor @ToString */
 public class CommandeClient implements Serializable{
+
+
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCommandeClient;
 	
 	private String code;
@@ -38,5 +37,67 @@ public class CommandeClient implements Serializable{
 	
 	@OneToMany(mappedBy="commandeClient")
 	private List<LigneCommandeClient> ligneCommandeClients;
+
+	public CommandeClient() {
+		super();
+	}
+
+	public CommandeClient(Long idCommandeClient, String code, Date dateCommande, Client client,
+			List<LigneCommandeClient> ligneCommandeClients) {
+		super();
+		this.idCommandeClient = idCommandeClient;
+		this.code = code;
+		this.dateCommande = dateCommande;
+		this.client = client;
+		this.ligneCommandeClients = ligneCommandeClients;
+	}
+
+	public Long getIdCommandeClient() {
+		return idCommandeClient;
+	}
+
+	public void setIdCommandeClient(Long idCommandeClient) {
+		this.idCommandeClient = idCommandeClient;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public Date getDateCommande() {
+		return dateCommande;
+	}
+
+	public void setDateCommande(Date dateCommande) {
+		this.dateCommande = dateCommande;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public List<LigneCommandeClient> getLigneCommandeClients() {
+		return ligneCommandeClients;
+	}
+
+	public void setLigneCommandeClients(List<LigneCommandeClient> ligneCommandeClients) {
+		this.ligneCommandeClients = ligneCommandeClients;
+	}
+
+	@Override
+	public String toString() {
+		return "CommandeClient [idCommandeClient=" + idCommandeClient + ", code=" + code + ", dateCommande="
+				+ dateCommande + ", client=" + client + ", ligneCommandeClients=" + ligneCommandeClients + "]";
+	}
+	
+	
 	
 }

@@ -43,7 +43,6 @@ public class FlickrDaoImpl implements IFlickrDao {
 	  }
 	 
 
-	@Override
 	public String savePhoto(InputStream photo, String title) throws Exception {
 		connect();
 		uploadMetaData.setTitle(title);

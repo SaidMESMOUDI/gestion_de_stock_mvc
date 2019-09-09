@@ -10,7 +10,7 @@ import com.saidus.gestionstock.services.ICommandeFournisseurService;
 
 @Transactional
 public class CommandeFournisseurServiceImpl implements ICommandeFournisseurService {
-	
+
 	private ICommandeFournisseurDao dao;
 
 	public void setDao(ICommandeFournisseurDao dao) {
@@ -34,7 +34,7 @@ public class CommandeFournisseurServiceImpl implements ICommandeFournisseurServi
 
 	@Override
 	public CommandeFournisseur save(CommandeFournisseur entity) {
-		return dao.save(entity);	
+		return dao.save(entity);
 	}
 
 	@Override

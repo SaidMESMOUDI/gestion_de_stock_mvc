@@ -8,6 +8,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.saidus.gestionstock.dao.IGenericDao;
  
 @SuppressWarnings("unchecked")
@@ -15,7 +18,11 @@ public class GenericDaoImpl<E> implements IGenericDao<E>{
 	@PersistenceContext
 	EntityManager entityManager;
 	
+	@Autowired
+	SessionFactory sessionFactory;
+	
 	private Class<E> type;
+
 
 	public Class<E> getType() {
 		return type;
@@ -98,6 +105,12 @@ public class GenericDaoImpl<E> implements IGenericDao<E>{
 		Query query = entityManager.createQuery("select t from " + type.getSimpleName() + " t where " + paramName + " = :x");
 		query.setParameter(paramName, paramValue);
 		return query.getResultList().size() > 0 ? ((Long) query.getSingleResult()).intValue() : 0;
+	}
+
+	@Override
+	public E saveData(E uploadFile) {
+		sessionFactory.getCurrentSession().save(uploadFile);
+		return uploadFile;
 	}
 
 }

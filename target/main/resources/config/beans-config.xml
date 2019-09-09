@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="articleDao" class="com.saidus.gestionstock.dao.impl.ArticleDaoImpl"></bean>
+	<bean id="articleService" class="com.saidus.gestionstock.services.impl.ArticleServiceImpl">
+		<property name="dao" ref="articleDao"></property>
+	</bean>
+	<bean id="categorieDao" class="com.saidus.gestionstock.dao.impl.CategorieDaoImpl"></bean>
+	<bean id="categorieService" class="com.saidus.gestionstock.services.impl.CategorieServiceImpl">
+		<property name="dao" ref="categorieDao"></property>
+	</bean>
+	<bean id="clientDao" class="com.saidus.gestionstock.dao.impl.ClientDaoImpl"></bean>
+	<bean id="clientService" class="com.saidus.gestionstock.services.impl.ClientServiceImpl">
+		<property name="dao" ref="clientDao"></property>
+	</bean>
+	<bean id="commandeClientDao" class="com.saidus.gestionstock.dao.impl.CommandeClientDaoImpl"></bean>
+	<bean id="commandeClientService" class="com.saidus.gestionstock.services.impl.CommandeClientServiceImpl">
+		<property name="dao" ref="commandeClientDao"></property>
+	</bean>
+	<bean id="ligneCommandeClientDao" class="com.saidus.gestionstock.dao.impl.LigneCommandeClientDaoImpl"></bean>
+	<bean id="ligneCommandeClientService" class="com.saidus.gestionstock.services.impl.LigneCommandeClientServiceImpl">
+		<property name="dao" ref="ligneCommandeClientDao"></property>
+	</bean>
+	<bean id="fournisseurDao" class="com.saidus.gestionstock.dao.impl.FournisseurDaoImpl"></bean>
+	<bean id="fournisseurService" class="com.saidus.gestionstock.services.impl.FournisseurServiceImpl">
+		<property name="dao" ref="fournisseurDao"></property>
+	</bean>
+	<bean id="commandeFournisseurDao" class="com.saidus.gestionstock.dao.impl.CommandeFournisseurDaoImpl"></bean>
+	<bean id="commandeFournisseurService" class="com.saidus.gestionstock.services.impl.CommandeFournisseurServiceImpl">
+		<property name="dao" ref="commandeFournisseurDao"></property>
+	</bean>
+	<bean id="ligneCommandeFournisseurDao" class="com.saidus.gestionstock.dao.impl.LigneCommandeFournisseurDaoImpl"></bean>
+	<bean id="ligneCommandeFournisseurService" class="com.saidus.gestionstock.services.impl.LigneCommandeFournisseurServiceImpl">
+		<property name="dao" ref="ligneCommandeFournisseurDao"></property>
+	</bean>
+	<bean id="venteDao" class="com.saidus.gestionstock.dao.impl.VenteDaoImpl"></bean>
+	<bean id="venteService" class="com.saidus.gestionstock.services.impl.VenteServiceImpl">
+		<property name="dao" ref="venteDao"></property>
+	</bean>
+	<bean id="ligneVenteDao" class="com.saidus.gestionstock.dao.impl.LigneVenteDaoImpl"></bean>
+	<bean id="ligneVenteService" class="com.saidus.gestionstock.services.impl.LigneVenteServiceImpl">
+		<property name="dao" ref="ligneVenteDao"></property>
+	</bean>
+	<bean id="mvtStkDao" class="com.saidus.gestionstock.dao.impl.MvtStkDaoImpl"></bean>
+	<bean id="mvtStkService" class="com.saidus.gestionstock.services.impl.MvtStkServiceImpl">
+		<property name="dao" ref="mvtStkDao"></property>
+	</bean>
+	<bean id="utilisateurDao" class="com.saidus.gestionstock.dao.impl.UtilisateurDaoImpl"></bean>
+	<bean id="utilisateurService" class="com.saidus.gestionstock.services.impl.UtilisateurServiceImpl">
+		<property name="dao" ref="utilisateurDao"></property>
+	</bean>
+	
+	<bean id="flickrDao" class="com.saidus.gestionstock.dao.impl.FlickrDaoImpl"></bean>
+	<bean id="flickrService" class="com.saidus.gestionstock.services.impl.FlickrServiceImpl">
+		<property name="dao" ref="flickrDao"></property>
+	</bean>
+	
+	<bean id="fileUploadDao" class="com.saidus.gestionstock.dao.impl.FileUploadDaoImpl"></bean>
+	<bean id="fileUploadService" class="com.saidus.gestionstock.services.impl.FileUploadServiceImpl">
+		<property name="dao" ref="fileUploadDao"></property>
+	</bean>
+</beans>
