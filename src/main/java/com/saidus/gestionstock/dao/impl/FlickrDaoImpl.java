@@ -1,12 +1,5 @@
 package com.saidus.gestionstock.dao.impl;
 
-import java.io.InputStream;
-
-import javax.swing.JOptionPane;
-
-import org.scribe.model.Token;
-import org.scribe.model.Verifier;
-
 import com.flickr4java.flickr.Flickr;
 import com.flickr4java.flickr.FlickrException;
 import com.flickr4java.flickr.REST;
@@ -15,7 +8,13 @@ import com.flickr4java.flickr.auth.Auth;
 import com.flickr4java.flickr.auth.AuthInterface;
 import com.flickr4java.flickr.auth.Permission;
 import com.flickr4java.flickr.uploader.UploadMetaData;
+import com.github.scribejava.core.model.OAuth1RequestToken;
+import com.github.scribejava.core.model.OAuth1Token;
 import com.saidus.gestionstock.dao.IFlickrDao;
+import org.scribe.model.Verifier;
+
+import javax.swing.*;
+import java.io.InputStream;
 
 
 public class FlickrDaoImpl implements IFlickrDao {
@@ -50,7 +49,7 @@ public class FlickrDaoImpl implements IFlickrDao {
 		return flickr.getPhotosInterface().getPhoto(photoId).getMedium640Url();
 	}
 	
-	// On utilise cette fonction (auth) juste une seule fois pour récupérer 
+	// On utilise cette fonction (auth) juste une seule fois pour rï¿½cupï¿½rer 
 	// dans la console le token et le secretToken
 	
 	public void auth() {
@@ -58,7 +57,7 @@ public class FlickrDaoImpl implements IFlickrDao {
 		
 		AuthInterface authInterface = flickr.getAuthInterface();
 		
-		Token token = authInterface.getRequestToken();
+		OAuth1RequestToken token = authInterface.getRequestToken();
 		System.out.println("token: " + token);
 		
 		String url = authInterface.getAuthorizationUrl(token, Permission.DELETE);
@@ -68,7 +67,7 @@ public class FlickrDaoImpl implements IFlickrDao {
 		System.out.println(">>");
 		
 		String tokenKey = JOptionPane.showInputDialog(null);
-		Token requestToken = authInterface.getAccessToken(token, new Verifier(tokenKey));
+		OAuth1Token requestToken = authInterface.getAccessToken(token, String.valueOf(new Verifier(tokenKey)));
 		System.out.println("Authentication success");
 		
 		Auth auth = null;
@@ -80,7 +79,7 @@ public class FlickrDaoImpl implements IFlickrDao {
 		
 		// This token can be used until the user revokes it. 
 		System.out.println("Token : " + requestToken.getToken());
-		System.out.println("Secret : " + requestToken.getSecret());
+		System.out.println("Secret : " + requestToken.getTokenSecret());
 		System.out.println("nsid : " + auth.getUser().getId());
 		System.out.println("Realname : " + auth.getUser().getRealName());
 		System.out.println("Username : " + auth.getUser().getUsername());

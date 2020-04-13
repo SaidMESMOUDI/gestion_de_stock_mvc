@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="com.github.eagle6688:devutility.external.javax.validation:1.0.4" type="repository">
+    <properties maven-id="com.github.eagle6688:devutility.external.javax.validation:1.0.4" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/eagle6688/devutility.external.javax.validation/1.0.4/devutility.external.javax.validation-1.0.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
